@@ -12,7 +12,7 @@ public class TryIt {
         // o.addLine(l1);
         // o.addLine(l2);
         // o.setDiscountPercent(10);
-        System.out.println("Before: " + order.totalAfterDiscount());
+        System.out.println("Before: " + order.totalBeforeDiscount());
         // l1.setQuantity(999); // demonstrates mutability leak
         System.out.println("After:  " + order.totalAfterDiscount());
         System.out.println("=> In the solution, totals remain stable due to defensive copies.");
