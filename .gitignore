@@ -12,6 +12,7 @@ hs_err_pid*
 .classpath
 .project
 .settings/
+.vscode
 
 # Build outputs
 target/

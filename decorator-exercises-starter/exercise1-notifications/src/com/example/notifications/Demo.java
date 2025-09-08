@@ -8,6 +8,7 @@ public class Demo {
     public static void main(String[] args) {
         Notifier base = new EmailNotifier("user@example.com");
 
+        System.out.println("\nEmail only:");
         // Baseline behavior (already works)
         base.notify("Baseline email only.");
 
@@ -24,10 +25,20 @@ public class Demo {
         //      d) Email + WhatsApp + Slack
         //
         // Example (after you implement):
-        // Notifier smsAndEmail = new SmsDecorator(base, "+91-99999-11111");
-        // smsAndEmail.notify("Build green ✅");
-        //
-        // Notifier full = new SlackDecorator(new WhatsAppDecorator(base, "user_wa"), "deployments");
-        // full.notify("Deployment completed 🚀");
+        System.out.println("\nEmail + SMS:");
+        Notifier smsAndEmail = new SmsDecorator(base, "+91-99999-11111");
+        smsAndEmail.notify("Hello");
+
+        System.out.println("\nEmail + WhatsApp:");
+        Notifier whatsappAndEmail = new WhatsAppDecorator(base, "user_wa");
+        whatsappAndEmail.notify("Hello");
+
+        System.out.println("\nEmail + Slack:");
+        Notifier slackAndEmail = new SlackDecorator(base, "deployments");
+        slackAndEmail.notify("Deployment completed");
+
+        System.out.println("\nEmail + WhatsApp + Slack:");
+        Notifier full = new SlackDecorator(new WhatsAppDecorator(base, "user_wa"), "deployments");
+        full.notify("Deployment completed");
     }
 }
