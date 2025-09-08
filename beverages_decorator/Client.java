@@ -10,8 +10,13 @@ public class Client {
         System.out.println("Coffee");
 		System.out.println(coffee.cost());
 		
-		
+		Beverage chocolateCoffee = new Chocolate(coffee);
+		System.out.println("Coffee with Chocolate");
+		System.out.println(chocolateCoffee.cost());
 
+		Beverage hazelnutChocolateCoffee = new Hazelnut(chocolateCoffee);
+		System.out.println("Coffee with Chocolate and Hazelnut");
+		System.out.println(hazelnutChocolateCoffee.cost());
 	}
 
 }
