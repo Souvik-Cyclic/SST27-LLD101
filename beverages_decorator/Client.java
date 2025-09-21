@@ -9,6 +9,10 @@ public class Client {
 		Beverage coffee = new Cappuccino();
         System.out.println("Coffee");
 		System.out.println(coffee.cost());
+        coffee = new ChocolateDecorator(coffee);
+        System.out.println(coffee.cost());
+        coffee = new ChocolateDecorator(coffee);
+        System.out.println(coffee.cost());
 		
 		Beverage chocolateCoffee = new Chocolate(coffee);
 		System.out.println("Coffee with Chocolate");
